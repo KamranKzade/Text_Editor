@@ -316,8 +316,8 @@
                         <ComboBox Name="FontFamily"
                                   FontSize="14" 
                                   Padding="5 0 0 0"
+                                  SelectionChanged="FontFamily_SelectionChanged"
                                   VerticalContentAlignment="Center"
-                                  SelectedIndex="0"
                                   ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}" 
                                   Margin="5"
                               />
@@ -327,7 +327,8 @@
                     <Border BorderBrush="Black"
                               Grid.Column="4"
                               BorderThickness="0 0 1 1">
-                        <ComboBox Name="FontSize"
+                        <ComboBox Name="FontSize_combo"
+                                  SelectionChanged="FontSize_SelectionChanged"
                                   FontSize="14" 
                                   Padding="15 0 0 0"
                                   HorizontalContentAlignment="Center"
@@ -343,8 +344,8 @@
                         <ComboBox Name="TextColor"
                                   ItemsSource="{Binding Source={StaticResource colorPropertiesOdp}}"
                                   DisplayMemberPath="Name"
+                                  SelectionChanged="TextColor_SelectionChanged"
                                   SelectedValuePath="Name" 
-                                  SelectedIndex="0"
                                   Padding="15 0 0 0"
                                   VerticalContentAlignment="Center"
                                   Margin="5"
@@ -360,8 +361,8 @@
                         <ComboBox Name="BackColor"
                                   ItemsSource="{Binding Source={StaticResource colorPropertiesOdp}}"
                                   DisplayMemberPath="Name"
+                                  SelectionChanged="BackColor_SelectionChanged"
                                   SelectedValuePath="Name" 
-                                  SelectedIndex="0"
                                   Padding="15 0 0 0"
                                   VerticalContentAlignment="Center"
                                   Margin="5"
@@ -425,7 +426,7 @@
         </Grid>
 
         <!-- TextBox -->
-        <TextBox Grid.Row="1"
+        <RichTextBox Grid.Row="1"
                  Name="Textbox"
                  BorderBrush="Black"
                  BorderThickness="2 0 2 2"/>
