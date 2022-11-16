@@ -64,6 +64,8 @@
 
                         <TextBox HorizontalAlignment="Left"
                                  Width="400"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Center"
                                  Margin="0 0 0 5"
                                  Name="TextName"
                                  Background="#F5B700"
