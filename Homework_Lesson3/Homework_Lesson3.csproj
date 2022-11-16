@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="align-center.png" />
+    <None Remove="align-justify.png" />
+    <None Remove="align-left.png" />
+    <None Remove="align-right.png" />
+    <None Remove="load %282%29.png" />
+    <None Remove="redo.png" />
+    <None Remove="save.png" />
+    <None Remove="text.png" />
+    <None Remove="undo.png" />
+    <None Remove="word.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\align-justify.png" />
+    <Resource Include="Images\align-right.png" />
+    <Resource Include="Images\align-center.png" />
+    <Resource Include="Images\align-left.png" />
+    <Resource Include="Images\text.png" />
+    <Resource Include="Images\load %282%29.png" />
+    <Resource Include="Images\save.png" />
+    <Resource Include="Images\word.png" />
+    <Resource Include="Images\undo.png" />
+    <Resource Include="Images\redo.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,433 @@
+﻿<Window x:Class="Homework_Lesson3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homework_Lesson3"
+        mc:Ignorable="d"
+        Title="TextEditor"
+        Height="700"
+        Icon="/Images/text.png"
+        Width="1000"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#826AED">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Text Name && Buttons -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Word Images -->
+                <Border BorderBrush="Black" BorderThickness="1 1 0 1"/>
+                <Image Grid.Column="0" Source="/Images/word.png" Stretch="Uniform" />
+
+                <!-- Text name lbl && Save Load btn -->
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Text Name Label -->
+                    <Label Grid.Row="0"
+                           Content="Text Name"
+                           BorderBrush="Black"
+                           BorderThickness="0 1 1 0"
+                           FontWeight="Medium"
+                           Foreground="#F5EFED"
+                           FontSize="22"/>
+                    
+                    <!--  Save Load Button -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- TextBox (TexName)  -->
+
+                        <TextBox HorizontalAlignment="Left"
+                                 Width="400"
+                                 Margin="0 0 0 5"
+                                 Name="TextName"
+                                 Background="#F5B700"
+                                 Foreground="#F5EFED"
+                                 FontWeight="Medium"
+                                 FontSize="20"/>
+
+                        <!-- Save Button -->
+                        <Button Grid.Column="1" 
+                                VerticalAlignment="Center"
+                                Padding="5"
+                                HorizontalAlignment="Center" 
+                                Background="Transparent"
+                                BorderThickness="0"
+                                ToolTip="Save Button">
+                            <Image Source="/Images/save.png" Stretch="Uniform" ></Image>
+                        </Button>
+
+                        <!-- ToggleButton -->
+                        <ToggleButton Grid.Column="2" 
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Center" 
+                                Background="LightSeaGreen"
+                                Content="Toogle"
+                                BorderThickness="0">
+                        </ToggleButton>
+
+                        <!-- Load Button -->
+                        <Button Grid.Column="3" 
+                                Padding="5"
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Center" 
+                                Background="Transparent"
+                                BorderThickness="0"
+                                ToolTip="Load Button">
+                            <Image Source="/Images/load (2).png" Stretch="Uniform" ></Image>
+                        </Button>
+
+                        <Border Grid.Column="0" BorderBrush="Black" BorderThickness="0 0 0 1"/>
+                        <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0 0 0 1"/>
+                        <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0 0 0 1"/>
+                        <Border Grid.Column="3" BorderBrush="Black" BorderThickness="0 0 1 1"/>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+
+            <!-- Title && Functionals -->
+            <Grid Grid.Row="1" Background="DeepSkyBlue">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Title -->
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label Content="Text Document"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           BorderBrush="Black"
+                           BorderThickness="2 0 0 0"
+                           Foreground="#F5EFED"
+                           Grid.Column="0"
+                           />
+                    <Label Content="Zoom"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           FontSize="18"
+                           FontWeight="Medium"
+                           BorderBrush="Black"
+                           BorderThickness="1 0 1 0"
+                           Foreground="#F5EFED"
+                           Grid.Column="1"
+                           />
+                    <Label Content="Font Style"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           FontSize="18"
+                           FontWeight="Medium"
+                           BorderBrush="Black"
+                           BorderThickness="0 0 1 0"
+                           Foreground="#F5EFED"
+                           Grid.Column="2"
+                           />
+
+                    <Label Content="Font Family"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           FontSize="18"
+                           FontWeight="Medium"
+                           BorderBrush="Black"
+                           BorderThickness="0 0 1 0"
+                           Foreground="#F5EFED"
+                           Grid.Column="3"
+                           />
+                    <Label Content="Font Size"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           FontSize="18"
+                           FontWeight="Medium"
+                           BorderBrush="Black"
+                           BorderThickness="0 0 1 0"
+                           Foreground="#F5EFED"
+                           Grid.Column="4"
+                           />
+                    <Label Content="Text Color"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           FontSize="18"
+                           FontWeight="Medium"
+                           BorderBrush="Black"
+                           BorderThickness="0 0 1 0"
+                           Foreground="#F5EFED"
+                           Grid.Column="5"
+                           />
+                    <Label Content="Back Color"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           FontSize="18"
+                           FontWeight="Medium"
+                           BorderBrush="Black"
+                           BorderThickness="0 0 1 0"
+                           Foreground="#F5EFED"
+                           Grid.Column="6"
+                           />
+                    <Label Content="Alignment"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           FontSize="18"
+                           FontWeight="Medium"
+                           BorderBrush="Black"
+                           BorderThickness="0 0 2 0"
+                           Foreground="#F5EFED"
+                           Grid.Column="7"
+                           />
+                </Grid>
+
+
+                <!-- Functionalliqlar -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <!-- Undo && Redo -->
+                    <Grid Grid.Column="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Name="Undo"
+                                Grid.Column="0"
+                                BorderBrush="Black"
+                                BorderThickness="2 0 0 1"
+                                Padding="5"
+                                Background="Transparent">
+                            <Image Source="/Images/undo.png" Stretch="Uniform"/>
+                        </Button>
+                        <Button Name="Redo"
+                                BorderBrush="Black"
+                                Grid.Column="1"
+                                Padding="5"
+                                Background="Transparent"
+                                BorderThickness="0 0 0 1">
+                            <Image Source="/Images/redo.png" 
+                                   Stretch="Uniform"/>
+                        </Button>
+
+                    </Grid>
+                    
+                    <!-- Zoom -->
+                    <Border BorderBrush="Black"
+                              Grid.Column="1"
+                              BorderThickness="1 0 1 1">
+                        <ComboBox Name="Zoom"
+                                  FontSize="14" 
+                                  Padding="15 0 0 0"
+                                  HorizontalContentAlignment="Center"
+                                  VerticalContentAlignment="Center"
+                                  SelectedIndex="2"
+                                  Margin="5"/>
+                    </Border>
+                    
+                    <!-- Font Style -->
+                    <Grid Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Name="Bold"
+                                Grid.Column="0"
+                                BorderBrush="Black"
+                                Content="B"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                BorderThickness="0 0 0 1"
+                                Background="Transparent"/>
+
+                        <Button Name="Ulderline"
+                                Grid.Column="1"
+                                BorderBrush="Black"
+                                Content="U"
+                                FontSize="18"
+                                FontWeight="Medium"
+                                BorderThickness="0 0 0 1"
+                                Background="Transparent"/>
+
+                        <Button Name="Italic"
+                                Grid.Column="2"
+                                BorderBrush="Black"
+                                Content="I"
+                                FontSize="18"
+                                FontWeight="Medium"
+                                FontStyle="Italic"
+                                BorderThickness="0 0 1 1"
+                                Background="Transparent"/>
+                    </Grid>
+
+                    
+                    
+                    <!-- Font Family -->
+                    <Border BorderBrush="Black"
+                            Grid.Column="3"
+                            BorderThickness="0 0 1 1">
+
+                        <ComboBox Name="FontFamily"
+                                  FontSize="14" 
+                                  Padding="5 0 0 0"
+                                  VerticalContentAlignment="Center"
+                                  SelectedIndex="0"
+                                  ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}" 
+                                  Margin="5"
+                              />
+                    </Border>
+
+                    <!-- Font Size-->
+                    <Border BorderBrush="Black"
+                              Grid.Column="4"
+                              BorderThickness="0 0 1 1">
+                        <ComboBox Name="FontSize"
+                                  FontSize="14" 
+                                  Padding="15 0 0 0"
+                                  HorizontalContentAlignment="Center"
+                                  VerticalContentAlignment="Center"
+                                  SelectedIndex="0"
+                                  Margin="5"/>
+                    </Border>
+
+                    <!-- Text Color -->
+                    <Border Grid.Column="5" 
+                            BorderBrush="Black"
+                            BorderThickness="0 0 1 1">
+                        <ComboBox Name="TextColor"
+                                  ItemsSource="{Binding Source={StaticResource colorPropertiesOdp}}"
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Name" 
+                                  SelectedIndex="0"
+                                  Padding="15 0 0 0"
+                                  VerticalContentAlignment="Center"
+                                  Margin="5"
+                                  FontSize="14"
+                                  Background="{Binding Path=SelectedItem, RelativeSource={RelativeSource Self}}"
+                            />
+                    </Border>
+
+                    <!-- Back Color -->
+                    <Border Grid.Column="6" 
+                            BorderBrush="Black"
+                            BorderThickness="0 0 1 1">
+                        <ComboBox Name="BackColor"
+                                  ItemsSource="{Binding Source={StaticResource colorPropertiesOdp}}"
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Name" 
+                                  SelectedIndex="0"
+                                  Padding="15 0 0 0"
+                                  VerticalContentAlignment="Center"
+                                  Margin="5"
+                                  FontSize="14"
+                                  Background="{Binding Path=SelectedItem, RelativeSource={RelativeSource Self}}"
+                            />
+                    </Border>
+
+
+                    <!-- Text Alignment -->
+                    <Border Grid.Column="7" 
+                            BorderBrush="Black"
+                            BorderThickness="0 0 0 1"/>
+                    <Grid Grid.Column="7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="*"/>
+                            <ColumnDefinition  Width="*"/>
+                            <ColumnDefinition  Width="*"/>
+                            <ColumnDefinition  Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Name="Left"
+                                Grid.Column="0"
+                                Padding="5"
+                                BorderThickness="0"
+                                Background="Transparent">
+                            <Image Source="/Images/align-left.png"
+                                       Stretch="Uniform"/>
+                        </Button>
+                        <Button Name="Center"
+                                Grid.Column="1"
+                                Padding="5"
+                                BorderThickness="0"
+                                Background="Transparent">
+                            <Image Source="/Images/align-center.png" 
+                                   Stretch="Uniform"/>
+                        </Button>
+                        <Button Name="Right"
+                                Grid.Column="2"
+                                Padding="5"
+                                BorderThickness="0"
+                                Background="Transparent">
+                            <Image Source="/Images/align-right.png" 
+                                   Stretch="Uniform"/>
+                        </Button>
+                        <Button Name="Justify"
+                                Grid.Column="3"
+                                Padding="5"
+                                BorderBrush="Black"
+                                BorderThickness="0 0 2 0"
+                                Background="Transparent">
+                            <Image Source="/Images/align-justify.png" 
+                                   Stretch="Uniform"/>
+                        </Button>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+        <!-- TextBox -->
+        <TextBox Grid.Row="1"
+                 Name="Textbox"
+                 BorderBrush="Black"
+                 BorderThickness="2 0 2 2"/>
+    </Grid>
+</Window>
