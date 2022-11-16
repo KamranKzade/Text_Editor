@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="TextEditor"
         Height="700"
+        Name="window"
         Icon="/Images/text.png"
         Width="1000"
         WindowStartupLocation="CenterScreen"
@@ -237,6 +238,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Button Name="Undo"
+                                Click="Undo_Click"
                                 Grid.Column="0"
                                 BorderBrush="Black"
                                 BorderThickness="2 0 0 1"
@@ -245,6 +247,7 @@
                             <Image Source="/Images/undo.png" Stretch="Uniform"/>
                         </Button>
                         <Button Name="Redo"
+                                Click="Undo_Click"
                                 BorderBrush="Black"
                                 Grid.Column="1"
                                 Padding="5"
@@ -261,11 +264,11 @@
                               Grid.Column="1"
                               BorderThickness="1 0 1 1">
                         <ComboBox Name="Zoom"
+                                  SelectionChanged="Zoom_SelectionChanged"
                                   FontSize="14" 
                                   Padding="15 0 0 0"
                                   HorizontalContentAlignment="Center"
                                   VerticalContentAlignment="Center"
-                                  SelectedIndex="2"
                                   Margin="5"/>
                     </Border>
                     
@@ -277,33 +280,36 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Name="Bold"
-                                Grid.Column="0"
-                                BorderBrush="Black"
-                                Content="B"
-                                FontSize="18"
-                                FontWeight="Bold"
-                                BorderThickness="0 0 0 1"
-                                Background="Transparent"/>
+                        <ToggleButton Name="Bold"
+                                      Click="Bold_Click"
+                                      Grid.Column="0"
+                                      BorderBrush="Black"
+                                      Content="B"
+                                      FontSize="18"
+                                      FontWeight="Bold"
+                                      BorderThickness="0 0 0 1"
+                                      Background="Transparent"/>
 
-                        <Button Name="Ulderline"
-                                Grid.Column="1"
-                                BorderBrush="Black"
-                                Content="U"
-                                FontSize="18"
-                                FontWeight="Medium"
-                                BorderThickness="0 0 0 1"
-                                Background="Transparent"/>
+                        <ToggleButton Name="Ulderline"
+                                      Click="Bold_Click"
+                                      Grid.Column="1"
+                                      BorderBrush="Black"
+                                      Content="U"
+                                      FontSize="18"
+                                      FontWeight="Medium"
+                                      BorderThickness="0 0 0 1"
+                                      Background="Transparent"/>
 
-                        <Button Name="Italic"
-                                Grid.Column="2"
-                                BorderBrush="Black"
-                                Content="I"
-                                FontSize="18"
-                                FontWeight="Medium"
-                                FontStyle="Italic"
-                                BorderThickness="0 0 1 1"
-                                Background="Transparent"/>
+                        <ToggleButton Name="Italic"
+                                      Click="Bold_Click"
+                                      Grid.Column="2"
+                                      BorderBrush="Black"
+                                      Content="I"
+                                      FontSize="18"
+                                      FontWeight="Medium"
+                                      FontStyle="Italic"
+                                      BorderThickness="0 0 1 1"
+                                      Background="Transparent"/>
                     </Grid>
 
                     
@@ -385,6 +391,8 @@
                         </Grid.ColumnDefinitions>
 
                         <Button Name="Left"
+                                ToolTip="Left Alignment"
+                                Click="Left_Click"
                                 Grid.Column="0"
                                 Padding="5"
                                 BorderThickness="0"
@@ -393,6 +401,8 @@
                                        Stretch="Uniform"/>
                         </Button>
                         <Button Name="Center"
+                                ToolTip="Center Alignment "
+                                Click="Left_Click"
                                 Grid.Column="1"
                                 Padding="5"
                                 BorderThickness="0"
@@ -401,6 +411,8 @@
                                    Stretch="Uniform"/>
                         </Button>
                         <Button Name="Right"
+                                ToolTip="Right Alignment"
+                                Click="Left_Click"
                                 Grid.Column="2"
                                 Padding="5"
                                 BorderThickness="0"
@@ -409,6 +421,8 @@
                                    Stretch="Uniform"/>
                         </Button>
                         <Button Name="Justify"
+                                ToolTip="Justify Alignment"
+                                Click="Left_Click"
                                 Grid.Column="3"
                                 Padding="5"
                                 BorderBrush="Black"
