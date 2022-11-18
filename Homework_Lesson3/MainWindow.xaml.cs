@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -45,7 +46,7 @@ public partial class MainWindow : Window
     private void BackColor_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
     {
         _backColor = (Color)(BackColor.SelectedItem as PropertyInfo)!.GetValue(null, null)!;
-        Textbox.Background = new SolidColorBrush(_backColor);
+        Textbox.Selection.ApplyPropertyValue(TextElement.BackgroundProperty, new SolidColorBrush(_backColor));
     }
 
     private void Zoom_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -185,4 +186,18 @@ public partial class MainWindow : Window
         }
     }
 
+    private void ToggleButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (Toggle.IsChecked == true)
+        {
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), TextName.Text);
+
+            if (File.Exists(path.ToString()))
+            {
+                var range = new TextRange(Textbox.Document.ContentStart, Textbox.Document.ContentEnd);
+                using StreamWriter stream = new(path);
+                stream.Write(range.Text);
+            }
+        }
+    }
 }

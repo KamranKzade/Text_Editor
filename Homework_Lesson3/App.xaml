@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Homework_Lesson3" xmlns:sys="clr-namespace:System;assembly=netstandard"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+
         
         <ObjectDataProvider MethodName="GetType" ObjectType="{x:Type sys:Type}" x:Key="colorsTypeOdp">
             <ObjectDataProvider.MethodParameters>
@@ -12,7 +13,8 @@
         </ObjectDataProvider>
 
         <ObjectDataProvider ObjectInstance="{StaticResource colorsTypeOdp}"    MethodName="GetProperties" x:Key="colorPropertiesOdp">
-        </ObjectDataProvider> 
+        </ObjectDataProvider>
+        
         
     </Application.Resources>
 </Application>
