@@ -75,6 +75,7 @@
 
                         <!-- Save Button -->
                         <Button Grid.Column="1" 
+                                Cursor="Hand"
                                 Click="Save_Btn_click"
                                 VerticalAlignment="Center"
                                 Padding="5"
@@ -87,6 +88,7 @@
 
                         <!-- ToggleButton -->
                         <ToggleButton Grid.Column="2" 
+                                      Cursor="Hand"
                                       Click="ToggleButton_Click"
                                       Margin="5"
                                       VerticalAlignment="Center" 
@@ -157,6 +159,7 @@
                         
                         <!-- Load Button -->
                         <Button Grid.Column="3" 
+                                Cursor="Hand"
                                 Padding="5"
                                 Click="Load_btn"
                                 VerticalAlignment="Center" 
@@ -303,8 +306,10 @@
                         </Grid.ColumnDefinitions>
 
                         <Button Name="Undo"
+                                Cursor="Hand"
                                 Click="Undo_Click"
                                 Grid.Column="0"
+                                ToolTip="Undo"
                                 BorderBrush="Black"
                                 BorderThickness="2 0 0 1"
                                 Padding="5"
@@ -312,7 +317,9 @@
                             <Image Source="/Images/undo.png" Stretch="Uniform"/>
                         </Button>
                         <Button Name="Redo"
+                                Cursor="Hand"
                                 Click="Undo_Click"
+                                ToolTip="Redo"
                                 BorderBrush="Black"
                                 Grid.Column="1"
                                 Padding="5"
@@ -331,6 +338,7 @@
                         <ComboBox Name="Zoom"
                                   SelectionChanged="Zoom_SelectionChanged"
                                   FontSize="14" 
+                                  SelectedIndex="2"
                                   Padding="15 0 0 0"
                                   HorizontalContentAlignment="Center"
                                   VerticalContentAlignment="Center"
@@ -346,6 +354,8 @@
                         </Grid.ColumnDefinitions>
 
                         <ToggleButton Name="Bold"
+                                      ToolTip="Bold"
+                                      Cursor="Hand"
                                       Click="Bold_Click"
                                       Grid.Column="0"
                                       BorderBrush="Black"
@@ -354,8 +364,9 @@
                                       FontWeight="Bold"
                                       BorderThickness="0 0 0 1"
                                       Background="Transparent"/>
-
                         <ToggleButton Name="Ulderline"
+                                      Cursor="Hand"
+                                      ToolTip="Underline"
                                       Click="Bold_Click"
                                       Grid.Column="1"
                                       BorderBrush="Black"
@@ -364,8 +375,9 @@
                                       FontWeight="Medium"
                                       BorderThickness="0 0 0 1"
                                       Background="Transparent"/>
-
                         <ToggleButton Name="Italic"
+                                      ToolTip="Italic"
+                                      Cursor="Hand"
                                       Click="Bold_Click"
                                       Grid.Column="2"
                                       BorderBrush="Black"
@@ -456,6 +468,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Button Name="Left"
+                                Cursor="Hand"
                                 ToolTip="Left Alignment"
                                 Click="Left_Click"
                                 Grid.Column="0"
@@ -466,6 +479,7 @@
                                        Stretch="Uniform"/>
                         </Button>
                         <Button Name="Center"
+                                Cursor="Hand"
                                 ToolTip="Center Alignment "
                                 Click="Left_Click"
                                 Grid.Column="1"
@@ -476,6 +490,7 @@
                                    Stretch="Uniform"/>
                         </Button>
                         <Button Name="Right"
+                                Cursor="Hand"
                                 ToolTip="Right Alignment"
                                 Click="Left_Click"
                                 Grid.Column="2"
@@ -486,6 +501,7 @@
                                    Stretch="Uniform"/>
                         </Button>
                         <Button Name="Justify"
+                                Cursor="Hand"
                                 ToolTip="Justify Alignment"
                                 Click="Left_Click"
                                 Grid.Column="3"
@@ -500,7 +516,6 @@
                     </Grid>
 
                 </Grid>
-
             </Grid>
         </Grid>
 

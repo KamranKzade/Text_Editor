@@ -15,15 +15,12 @@ public partial class MainWindow : Window
     private Color _textColor { get; set; }
     private Color _backColor { get; set; }
 
-
     public MainWindow()
     {
         InitializeComponent();
         FontSizeAdd();
         ZoomAdd();
     }
-
-
 
 
     private void FontSize_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -167,6 +164,23 @@ public partial class MainWindow : Window
         }
     }
 
+    private void ToggleButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (Toggle.IsChecked == true)
+        {
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), TextName.Text);
+
+            if (File.Exists(path.ToString()))
+            {
+                var range = new TextRange(Textbox.Document.ContentStart, Textbox.Document.ContentEnd);
+                using StreamWriter stream = new(path);
+                stream.Write(range.Text);
+            }
+            else
+                MessageBox.Show($"{TextName.Text} adinda File yoxdur", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+    }
+
     private void ZoomAdd()
     {
         Zoom.Items.Add("50");
@@ -186,18 +200,4 @@ public partial class MainWindow : Window
         }
     }
 
-    private void ToggleButton_Click(object sender, RoutedEventArgs e)
-    {
-        if (Toggle.IsChecked == true)
-        {
-            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), TextName.Text);
-
-            if (File.Exists(path.ToString()))
-            {
-                var range = new TextRange(Textbox.Document.ContentStart, Textbox.Document.ContentEnd);
-                using StreamWriter stream = new(path);
-                stream.Write(range.Text);
-            }
-        }
-    }
 }
