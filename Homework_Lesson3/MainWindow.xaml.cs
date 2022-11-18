@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using Microsoft.Win32;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -9,7 +11,6 @@ namespace Homework_Lesson3;
 
 public partial class MainWindow : Window
 {
-
     private Color _textColor { get; set; }
     private Color _backColor { get; set; }
 
@@ -20,14 +21,6 @@ public partial class MainWindow : Window
         FontSizeAdd();
         ZoomAdd();
     }
-
-
-
-
-
-
-
-
 
 
 
@@ -85,25 +78,6 @@ public partial class MainWindow : Window
         }
     }
 
-    private void ZoomAdd()
-    {
-        Zoom.Items.Add("50");
-        Zoom.Items.Add("75");
-        Zoom.Items.Add("100");
-        Zoom.Items.Add("125");
-        Zoom.Items.Add("150");
-        Zoom.Items.Add("200");
-    }
-
-    private void FontSizeAdd()
-    {
-        for (int i = 8; i <= 72; i++)
-        {
-            if (i % 2 == 0)
-                FontSize_combo.Items.Add(i);
-        }
-    }
-
     private void Bold_Click(object sender, RoutedEventArgs e)
     {
         var btn = sender as ToggleButton;
@@ -152,6 +126,62 @@ public partial class MainWindow : Window
                 break;
             default:
                 break;
+        }
+    }
+
+    private void Save_Btn_click(object sender, RoutedEventArgs e)
+    {
+        var save = new SaveFileDialog()
+        {
+            Filter = "Text documents (.txt)|*.txt",
+            FileName = TextName.Text
+        };
+
+        TextRange range = new TextRange(Textbox.Document.ContentStart, Textbox.Document.ContentEnd);
+
+        if (save.ShowDialog() == true)
+        {
+            using StreamWriter stream = new(save.FileName);
+            stream.Write(range.Text);
+        }
+    }
+
+    private void Load_btn(object sender, RoutedEventArgs e)
+    {
+        TextRange range = new TextRange(Textbox.Document.ContentStart, Textbox.Document.ContentEnd);
+        range.Text = string.Empty;
+        Textbox.Selection.Text = range.Text;
+
+
+        var load = new OpenFileDialog()
+        {
+            Filter = "Text documents (.txt)|*.txt",
+        };
+
+        if (load.ShowDialog() == true)
+        {
+            using StreamReader stream = new(load.FileName);
+            Textbox.Selection.Text = stream.ReadToEnd();
+            TextName.Text = load.SafeFileName;
+        }
+    }
+
+    private void ZoomAdd()
+    {
+        Zoom.Items.Add("50");
+        Zoom.Items.Add("75");
+        Zoom.Items.Add("100");
+        Zoom.Items.Add("125");
+        Zoom.Items.Add("150");
+        Zoom.Items.Add("200");
+    }
+
+    private void FontSizeAdd()
+    {
+        for (int i = 8; i <= 72; i++)
+        {
+            if (i % 2 == 0)
+                FontSize_combo.Items.Add(i);
         }
     }
 
